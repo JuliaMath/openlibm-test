@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  # Skip intermediate builds: always.
+  # Cancel intermediate builds: only if it is a pull request build.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+jobs:
+  test:
+    name: alpine musl
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Alpine Linux
+        uses: jirutka/setup-alpine@v1
+        with:
+          arch: x86_64
+          branch: latest-stable
+          packages: >
+            build-base
+      - name: Env Version
+        run: |
+          gcc --version
+          ld --version
+          apk info musl
+        shell: alpine.sh {0}
+      - name: Run Test
+        run: make -j`nproc`
+        shell: alpine.sh {0}
+      - name: Show Test Result
+        run: cat src/REPORT
