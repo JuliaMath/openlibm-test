@@ -4,4 +4,5 @@
 *.a
 *.exe
 config.mak
+options.h
 REPORT
