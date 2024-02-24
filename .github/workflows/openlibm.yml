@@ -1,0 +1,41 @@
+name: Openlibm
+on:
+  push:
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+      - 'doc/**'
+    branches:
+      - main
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  # Skip intermediate builds: always.
+  # Cancel intermediate builds: only if it is a pull request build.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+jobs:
+  test:
+    name: ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout Openlibm
+        uses: actions/checkout@v4
+        with:
+          repository: 'JuliaMath/openlibm'
+          path: 'libm/openlibm'
+      - name: Env Version
+        run: |
+          gcc --version
+          ld --version
+          ldd --version
+      - name: Build Openlibm
+        run: make -C libm/openlibm -j`nproc` 
+      - name: Run Test
+        run: make -j`nproc` USE_OPENLIBM=1
+      - name: Show Test Result
+        run: cat src/REPORT
