@@ -26,8 +26,13 @@ jobs:
           branch: latest-stable
           packages: >
             build-base
+      - name: Env Version
+        run: |
+          gcc --version
+          ld --version
+          apk info musl
       - name: Run Test
-        run: make
+        run: make -j`nproc`
         shell: alpine.sh {0}
       - name: Show Test Result
         run: cat src/REPORT
