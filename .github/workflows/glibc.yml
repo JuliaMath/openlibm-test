@@ -1,6 +1,10 @@
 name: Glibc
 on:
   push:
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+      - 'doc/**'
     branches:
       - main
     tags: ['*']

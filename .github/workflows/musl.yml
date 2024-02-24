@@ -1,6 +1,10 @@
 name: Musl
 on:
   push:
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+      - 'doc/**'
     branches:
       - main
     tags: ['*']
