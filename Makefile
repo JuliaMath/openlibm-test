@@ -119,6 +119,12 @@ $(api.OBJS):CFLAGS+=-pedantic-errors -Werror -Wno-unused -D_XOPEN_SOURCE=700
 
 all run: $(B)/REPORT
 	grep FAIL $< || echo PASS
+# Always return 0
+
+# Error when libm not passed tests
+checklibm: $(B)/REPORT
+	@$(if $(shell grep FAIL $<), echo FAIL && exit 1, echo PASS)
+
 clean:
 	rm -f $(OBJS) $(BINS) $(LIBS) $(B)/common/libtest.a $(B)/common/runtest.exe $(B)/common/options.h $(B)/*/*.err
 cleanall: clean
@@ -151,4 +157,3 @@ $(B)/%.exe: $(B)/%.o
 	$(RUN_TEST) $< >$@ || true
 
 .PHONY: all run clean cleanall
-
