@@ -31,6 +31,7 @@ jobs:
           gcc --version
           ld --version
           apk info musl
+        shell: alpine.sh {0}
       - name: Run Test
         run: make -j`nproc`
         shell: alpine.sh {0}
