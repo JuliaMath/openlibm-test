@@ -1,4 +1,4 @@
-name: CI
+name: Musl
 on:
   push:
     branches:
@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   test:
-    name: alpine musl
+    name: alpine
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
