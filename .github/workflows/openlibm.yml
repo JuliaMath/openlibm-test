@@ -1,11 +1,12 @@
-name: Glibc
+name: Openlibm
 on:
   push:
     paths:
-      - '.github/workflows/glibc.yml'
+      - '.github/workflows/openlibm.yml'
       - 'src/**'
       - 'config.mak.def'
       - 'Makefile'
+      - 'openlibm.mk'
     branches:
       - main
     tags: ['*']
@@ -23,13 +24,20 @@ jobs:
     name: ubuntu
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+      - name: Checkout Openlibm
+        uses: actions/checkout@v4
+        with:
+          repository: 'JuliaMath/openlibm'
+          path: 'libm/openlibm'
       - name: Env Version
         run: |
           gcc --version
           ld --version
           ldd --version
+      - name: Build Openlibm
+        run: make -C libm/openlibm -j`nproc` 
       - name: Run Test
-        run: make -j`nproc`
+        run: make -j`nproc` USE_OPENLIBM=1
       - name: Show Test Result
         run: cat src/REPORT

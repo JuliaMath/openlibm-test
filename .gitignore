@@ -6,3 +6,5 @@
 config.mak
 options.h
 REPORT
+
+libm/
