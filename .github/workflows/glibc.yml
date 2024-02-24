@@ -1,0 +1,30 @@
+name: Glibc
+on:
+  push:
+    branches:
+      - main
+    tags: ['*']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  # Skip intermediate builds: always.
+  # Cancel intermediate builds: only if it is a pull request build.
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ startsWith(github.ref, 'refs/pull/') }}
+
+jobs:
+  test:
+    name: ubuntu
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Env Version
+        run: |
+          gcc --version
+          ld --version
+          ldd --version
+      - name: Run Test
+        run: make -j`nproc`
+      - name: Show Test Result
+        run: cat src/REPORT
