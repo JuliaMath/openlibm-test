@@ -1,10 +1,12 @@
 name: Openlibm
 on:
   push:
-    paths-ignore:
-      - 'README.md'
-      - '.gitignore'
-      - 'doc/**'
+    paths:
+      - '.github/workflows/openlibm.yml'
+      - 'src/**'
+      - 'config.mak.def'
+      - 'Makefile'
+      - 'openlibm.mk'
     branches:
       - main
     tags: ['*']

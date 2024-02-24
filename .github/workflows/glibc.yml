@@ -1,10 +1,11 @@
 name: Glibc
 on:
   push:
-    paths-ignore:
-      - 'README.md'
-      - '.gitignore'
-      - 'doc/**'
+    paths:
+      - '.github/workflows/glibc.yml'
+      - 'src/**'
+      - 'config.mak.def'
+      - 'Makefile'
     branches:
       - main
     tags: ['*']
