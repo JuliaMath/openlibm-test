@@ -25,5 +25,5 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 Portions of this software is derived from software authored by
 third parties:
 
-math tests use numbers under BSD and GPL licenses see src/math/ucb/*
-and src/math/crlibm/* for details
+math tests use numbers under BSD licenses see src/math/ucb/*
+for details
