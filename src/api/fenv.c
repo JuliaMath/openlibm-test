@@ -1,4 +1,10 @@
-#include <fenv.h>
+// XXX: Use openlibm
+#ifdef USE_OPENLIBM
+#   include <openlibm_fenv.h>
+#else
+#   include <fenv.h>
+#endif // USE_OPENLIBM
+
 #define T(t) (t*)0;
 #define F(t,n) {t *y = &x.n;}
 #define C(n) switch(n){case n:;}

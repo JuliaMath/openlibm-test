@@ -1,4 +1,10 @@
-#include <math.h>
+// XXX: Use openlibm
+#ifdef USE_OPENLIBM
+#   include <openlibm_math.h>
+#else
+#   include <math.h>
+#endif // USE_OPENLIBM
+
 #define T(t) (t*)0;
 #define C(n) switch(n){case n:;}
 #define I(t,e) {t x[sizeof(t)==sizeof(e)] = {e};}

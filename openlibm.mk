@@ -5,8 +5,8 @@
 #	- OPENLIBM_LIB
 
 # ---- OpenlibM settings
-_OPENLIBM_DIR?=$(abspath libm/openlibm)
-include $(_OPENLIBM_DIR)/Make.inc
+OPENLIBM_HOME?=$(abspath libm/openlibm)
+include $(OPENLIBM_HOME)/Make.inc
 
 # Set rpath of tests to builddir for loading shared library
 OPENLIBM_LIB = -L$(OPENLIBM_HOME) -lopenlibm
@@ -17,3 +17,5 @@ endif
 else # WINNT
 CFLAGS_add += -DIMPORT_EXPORTS
 endif
+
+CFLAGS_add += -DUSE_OPENLIBM
