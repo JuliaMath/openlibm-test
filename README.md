@@ -1,6 +1,7 @@
 OpenLibm Test
 =============
 
+[![Openlibm](https://github.com/inkydragon/openlibm-test/actions/workflows/openlibm.yml/badge.svg)](https://github.com/inkydragon/openlibm-test/actions/workflows/openlibm.yml)
 [![Musl](https://github.com/inkydragon/openlibm-test/actions/workflows/musl.yml/badge.svg)](https://github.com/inkydragon/openlibm-test/actions/workflows/musl.yml)
 [![Glibc](https://github.com/inkydragon/openlibm-test/actions/workflows/glibc.yml/badge.svg)](https://github.com/inkydragon/openlibm-test/actions/workflows/glibc.yml)
 
