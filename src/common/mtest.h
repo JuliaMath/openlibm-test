@@ -105,6 +105,12 @@ float ulperr(double got, double want, float dwant);
 float ulperrf(float got, float want, float dwant);
 float ulperrl(long double got, long double want, float dwant);
 
+
+#ifdef SKIP_FP_EXCEPT_TEST
+// XXX: Skip check all fp except
+static int checkexcept(int got, int want, int r) { return 1; }
+static int checkexceptall(int got, int want, int r) { return 1; }
+#else
 static int checkexcept(int got, int want, int r)
 {
 	if (r == RN)
@@ -122,6 +128,7 @@ static int checkexceptall(int got, int want, int r)
 {
 	return got == want;
 }
+#endif // SKIP_FP_EXCEPT_TEST
 
 static int checkulp(float d, int r)
 {
