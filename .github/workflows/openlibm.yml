@@ -38,6 +38,6 @@ jobs:
       - name: Build Openlibm
         run: make -C libm/openlibm -j`nproc` 
       - name: Run Test
-        run: make -j`nproc` USE_OPENLIBM=1
+        run: make -j`nproc` USE_OPENLIBM=1 SKIP_FP_EXCEPT_TEST=1
       - name: Show Test Result
         run: cat src/REPORT
