@@ -1,9 +1,9 @@
 OpenLibm Test
 =============
 
-[![Openlibm](https://github.com/inkydragon/openlibm-test/actions/workflows/openlibm.yml/badge.svg)](https://github.com/inkydragon/openlibm-test/actions/workflows/openlibm.yml)
-[![Musl](https://github.com/inkydragon/openlibm-test/actions/workflows/musl.yml/badge.svg)](https://github.com/inkydragon/openlibm-test/actions/workflows/musl.yml)
-[![Glibc](https://github.com/inkydragon/openlibm-test/actions/workflows/glibc.yml/badge.svg)](https://github.com/inkydragon/openlibm-test/actions/workflows/glibc.yml)
+[![Openlibm](https://github.com/JuliaMath/openlibm-test/actions/workflows/openlibm.yml/badge.svg)](https://github.com/JuliaMath/openlibm-test/actions/workflows/openlibm.yml)
+[![Musl](https://github.com/JuliaMath/openlibm-test/actions/workflows/musl.yml/badge.svg)](https://github.com/JuliaMath/openlibm-test/actions/workflows/musl.yml)
+[![Glibc](https://github.com/JuliaMath/openlibm-test/actions/workflows/glibc.yml/badge.svg)](https://github.com/JuliaMath/openlibm-test/actions/workflows/glibc.yml)
 
 > `OpenLibm Test` is a fork of [`libc-test`](http://nsz.repo.hu/git/?p=libc-test)
 > which only test the libm related math functions.
