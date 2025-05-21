@@ -137,7 +137,5 @@ third parties:
 math tests use numbers under [BSD licenses][UCB-BSD]
 see [`src/math/ucb/*`][math/ucb] for details
 
-> The original `libc-test` license is available at [`COPYRIGHT`](COPYRIGHT).
-
 [UCB-BSD]: src/math/ucb/LICENSE.BSD
 [math/ucb]: src/math/ucb
