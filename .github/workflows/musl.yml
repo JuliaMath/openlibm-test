@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   test:
-    name: alpine
+    name: Alpine Musl
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
