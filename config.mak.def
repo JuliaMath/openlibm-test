@@ -75,20 +75,21 @@ C99_SRC+=isless
 # TODO: isgreater isgreaterequal islessequal islessgreater isunordered
 # -- [C23]
 C23_SRC:=exp10 exp10f exp10l
+C23_SRC:=pow10 pow10f pow10l
 # -- [BSD]
-BSD_SRC:=drem dremf
+# BSD_SRC:=drem dremf
 BSD_SRC+=j0 j0f j1 j1f jn jnf
 BSD_SRC+=lgamma_r lgammaf_r lgammal_r
-BSD_SRC+=scalb scalbf
+# BSD_SRC+=scalb scalbf
 BSD_SRC+=y0 y0f y1 y1f yn ynf
 # -- [GNU]
-GNU_SRC:=pow10 pow10f pow10l  sincos sincosf sincosl
+GNU_SRC:=sincos sincosf sincosl
 
 # Collect all c src files
 SRCS:=$(C99_SRC:%=src/math/%.c)
 # SRCS+=$(C23_SRC:%=src/math/%.c)
-# SRCS+=$(BSD_SRC:%=src/math/%.c)
-# SRCS+=$(GNU_SRC:%=src/math/%.c)
+SRCS+=$(BSD_SRC:%=src/math/%.c)
+SRCS+=$(GNU_SRC:%=src/math/%.c)
 
 SRCS+=$(wildcard src/api/*.c)
 SRCS+=$(wildcard src/common/*.c)
