@@ -24,9 +24,9 @@ jobs:
     name: Ubuntu Openlibm
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Checkout Openlibm
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: 'JuliaMath/openlibm'
           path: 'libm/openlibm'
